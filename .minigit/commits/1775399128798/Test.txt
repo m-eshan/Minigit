@@ -1,0 +1,14 @@
+This is a codefor Minigit button
+"void MainWindow::onDiffClicked() {
+    QString file = ui->inputLineEdit->text();
+
+    if (file.isEmpty()) {
+        ui->outputTextEdit->append("Enter filename for diff");
+        return;
+    }
+
+    std::string result = repo.diff(file.toStdString());
+    ui->outputTextEdit->append(QString::fromStdString(result));
+}"
+
+This is a new line

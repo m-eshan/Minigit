@@ -1,0 +1,10 @@
+^C:\USERS\ESHAN\ONEDRIVE\DOCUMENTS\MINIGIT\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/eshan/OneDrive/Documents/Minigit -BC:/Users/eshan/OneDrive/Documents/Minigit/build --check-stamp-file C:/Users/eshan/OneDrive/Documents/Minigit/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
