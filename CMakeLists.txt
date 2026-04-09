@@ -16,13 +16,26 @@ else()
     set(QT_VERSION Qt5)
 endif()
 
-add_executable(minigit_gui main.cpp MainWindow.cpp Repository.cpp Utils.cpp)
-add_executable(minigit_smoke_tests tests/RepositorySmoke.cpp Repository.cpp Utils.cpp)
+add_executable(minigit_gui
+    src/main.cpp
+    src/MainWindow.cpp
+    src/Repository.cpp
+    src/Utils.cpp
+)
+add_executable(minigit_smoke_tests
+    tests/RepositorySmoke.cpp
+    src/Repository.cpp
+    src/Utils.cpp
+)
 
 target_link_libraries(minigit_gui ${QT_VERSION}::Widgets)
 
-target_include_directories(minigit_gui PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-target_include_directories(minigit_smoke_tests PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(minigit_gui PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+)
+target_include_directories(minigit_smoke_tests PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+)
 
 enable_testing()
 add_test(NAME minigit_smoke_tests COMMAND minigit_smoke_tests)

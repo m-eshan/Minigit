@@ -40,11 +40,11 @@ Log loaded successfully
 
 ## How It Works
 
-- `Repository.*` contains the core repository logic
-- `Commit.h` defines the commit structure
-- `Utils.*` provides helper functions used across the project
-- `MainWindow.*` connects the GUI buttons and inputs to the backend logic
-- `main.cpp` starts the Qt application
+- `src/Repository.*` contains the core repository logic
+- `src/Commit.h` defines the commit structure
+- `src/Utils.*` provides helper functions used across the project
+- `src/MainWindow.*` connects the GUI buttons and inputs to the backend logic
+- `src/main.cpp` starts the Qt application
 
 The interface keeps the project root in sync so you can launch the app from the build folder or executable and still work with the same MiniGit repository.
 
@@ -75,20 +75,23 @@ cmake --build .
 
 ```text
 Minigit/
-+-- main.cpp
-+-- MainWindow.cpp
-+-- MainWindow.h
-+-- Repository.cpp
-+-- Repository.h
-+-- Commit.h
-+-- Utils.cpp
-+-- Utils.h
++-- src/
+¦   +-- main.cpp
+¦   +-- MainWindow.cpp
+¦   +-- MainWindow.h
+¦   +-- Repository.cpp
+¦   +-- Repository.h
+¦   +-- Commit.h
+¦   +-- Utils.cpp
+¦   +-- Utils.h
++-- tests/
+¦   +-- RepositorySmoke.cpp
++-- assets/
+¦   +-- .gitkeep
++-- .minigit/
 +-- CMakeLists.txt
 +-- README.md
 +-- .gitignore
-+-- assets/
-+-- tests/
-+-- .minigit/
 ```
 
 ## Recommended Workflow

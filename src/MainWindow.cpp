@@ -14,8 +14,8 @@ QString MainWindow::resolveRepositoryRoot() {
         for (int depth = 0; depth < 4; ++depth) {
             const bool looksLikeRepo =
                 dir.exists("CMakeLists.txt") &&
-                dir.exists("MainWindow.cpp") &&
-                dir.exists("Repository.cpp");
+                dir.exists("src/MainWindow.cpp") &&
+                dir.exists("src/Repository.cpp");
             if (looksLikeRepo || dir.exists(".minigit")) {
                 return dir.absolutePath();
             }
