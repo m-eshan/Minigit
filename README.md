@@ -1,33 +1,60 @@
-# MiniGit GUI
+# MiniGit
 
-A desktop GUI application for MiniGit, a lightweight version control system, built with Qt Widgets.
+MiniGit is a lightweight version control system built in C++ with a Qt-based desktop GUI. It demonstrates the core ideas behind Git-style workflows, including repository initialization, staging, commits, history browsing, branching, and file recovery.
 
-## Features
+## What This Project Shows
 
-- **Init**: Initialize a new repository
-- **Add File**: Select and stage a file using file dialog
-- **Commit**: Commit staged files with a full repository snapshot
-- **Log**: View commit history
-- **Status**: Check repository status
-- **Diff**: Show differences for a file
-- **Checkout**: Restore files from a commit or switch branches
-- **Branch**: Create a branch or switch to an existing one
-- **Merge**: Merge a branch into current
-- **Clear**: Clear the output log
+- Repository initialization
+- File staging and commit creation
+- Commit history browsing
+- Status, diff, checkout, branch, and merge actions
+- A desktop GUI that makes the version-control flow easy to use
 
-## UI Components
+## Quick Demo
 
-- **Buttons Row**: Action buttons for each command
-- **Output Area**: Colored text display for results and logs
-- **Input Field**: Text input for messages, filenames, IDs, etc.
+```text
+1. Start MiniGit
+2. Click Init to create a repository
+3. Add a file to the staging area
+4. Enter a commit message and commit the snapshot
+5. Open Log to inspect history
+6. Use Checkout, Branch, or Merge to move through versions
+```
+
+Example flow:
+
+```text
+Init -> Add File -> Commit -> Log -> Checkout
+```
+
+## Example Output
+
+The GUI shows status messages directly in the application window. A typical run looks like this:
+
+```text
+Repository initialized successfully
+File staged successfully
+Commit created: first commit
+Log loaded successfully
+```
+
+## How It Works
+
+- `Repository.*` contains the core repository logic
+- `Commit.h` defines the commit structure
+- `Utils.*` provides helper functions used across the project
+- `MainWindow.*` connects the GUI buttons and inputs to the backend logic
+- `main.cpp` starts the Qt application
+
+The interface keeps the project root in sync so you can launch the app from the build folder or executable and still work with the same MiniGit repository.
 
 ## Build Instructions
 
 ### Prerequisites
 
-- Qt6 (or Qt5) installed
+- Qt 5 or Qt 6
 - CMake
-- C++17 compiler
+- A C++17 compiler
 
 ### Using CMake
 
@@ -35,58 +62,51 @@ A desktop GUI application for MiniGit, a lightweight version control system, bui
 mkdir build
 cd build
 cmake ..
-make
-```
-
-On Windows with Qt6, the build now places the runnable GUI in:
-
-```bash
-../dist/minigit_gui.exe
+cmake --build .
 ```
 
 ### Using Qt Creator
 
-1. Open CMakeLists.txt in Qt Creator
-2. Build and run the project
+1. Open `CMakeLists.txt` in Qt Creator
+2. Build the project
+3. Run the application
 
-## File Structure
+## Project Structure
 
-```
+```text
 Minigit/
-├── main.cpp              # Qt application entry point
-├── MainWindow.h/.cpp     # GUI window implementation
-├── Repository.h/.cpp     # Core repository logic
-├── Commit.h              # Commit data structure
-├── Utils.h/.cpp          # Utility functions
-├── CMakeLists.txt        # Build configuration
-└── README.md             # Documentation
++-- main.cpp
++-- MainWindow.cpp
++-- MainWindow.h
++-- Repository.cpp
++-- Repository.h
++-- Commit.h
++-- Utils.cpp
++-- Utils.h
++-- CMakeLists.txt
++-- README.md
++-- .gitignore
++-- assets/
++-- tests/
++-- .minigit/
 ```
-
-## How It Works
-
-The GUI directly integrates with the existing MiniGit backend classes. Each button click captures the console output from the Repository methods and displays it in the text area with appropriate colors:
-
-- Green: Success messages
-- Blue: Information (log, status)
-- Orange: Diff output
-- Red: Errors (via QMessageBox)
-
-Input is handled through the bottom text field, with validation for required inputs.
-
-The GUI detects the MiniGit project root automatically, so launching it from `build`, `dist`, or by double-clicking the `.exe` still points at the correct repository folder.
 
 ## Recommended Workflow
 
-1. Click `Init` once inside your project folder.
-2. Use `Add File` to stage one or more project files.
-3. Enter a commit message and click `Commit`.
-4. Enter a new branch name and click `Branch/Switch` to create or switch branches.
-5. Enter an existing branch name or commit ID and click `Checkout` to move around history.
-6. Enter another branch name and click `Merge` to merge it into the current branch.
+1. Initialize a repository.
+2. Stage a file.
+3. Commit with a clear message.
+4. View history with Log.
+5. Use Checkout, Branch, or Merge when you want to explore versions.
+
+## Notes
+
+- `assets/` can be used for screenshots or demo images.
+- `tests/RepositorySmoke.cpp` is the smoke test entry point.
 
 ## Smoke Test
 
-After configuring CMake, you can run the automated repository smoke test with:
+After configuring CMake, run the automated test suite with:
 
 ```bash
 ctest --output-on-failure
