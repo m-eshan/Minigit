@@ -1,6 +1,6 @@
-# MiniGit
+﻿# MiniGit
 
-MiniGit is a lightweight version control system built in C++ with a Qt-based desktop GUI. It demonstrates the core ideas behind Git-style workflows, including repository initialization, staging, commits, history browsing, branching, and file recovery.
+MiniGit is a simplified version control system built from scratch in C++ with a Qt-based desktop GUI. It demonstrates the core ideas behind Git-style workflows, including repository initialization, staging, commits, history browsing, branching, and file recovery.
 
 ## What This Project Shows
 
@@ -9,6 +9,7 @@ MiniGit is a lightweight version control system built in C++ with a Qt-based des
 - Commit history browsing
 - Status, diff, checkout, branch, and merge actions
 - A desktop GUI that makes the version-control flow easy to use
+- A compact systems-style implementation of Git-like behavior
 
 ## Quick Demo
 
@@ -27,6 +28,23 @@ Example flow:
 Init -> Add File -> Commit -> Log -> Checkout
 ```
 
+## Example Usage
+
+```bash
+$ minigit init
+Initialized empty repository
+
+$ minigit add file.txt
+File staged successfully
+
+$ minigit commit -m "first commit"
+Commit created: first commit
+
+$ minigit log
+commit abc123
+Message: first commit
+```
+
 ## Example Output
 
 The GUI shows status messages directly in the application window. A typical run looks like this:
@@ -39,6 +57,12 @@ Log loaded successfully
 ```
 
 ## How It Works
+
+- Files are staged before they are committed
+- Each commit stores a snapshot of the repository state
+- Logs keep the commit history readable and traceable
+- Branches allow separate lines of history to be tracked
+- Checkout restores files from an earlier commit
 
 - `src/Repository.*` contains the core repository logic
 - `src/Commit.h` defines the commit structure
@@ -75,23 +99,23 @@ cmake --build .
 
 ```text
 Minigit/
-+-- src/
-�   +-- main.cpp
-�   +-- MainWindow.cpp
-�   +-- MainWindow.h
-�   +-- Repository.cpp
-�   +-- Repository.h
-�   +-- Commit.h
-�   +-- Utils.cpp
-�   +-- Utils.h
-+-- tests/
-�   +-- RepositorySmoke.cpp
-+-- assets/
-�   +-- .gitkeep
-+-- .minigit/
-+-- CMakeLists.txt
-+-- README.md
-+-- .gitignore
+├── src/
+│   ├── main.cpp
+│   ├── MainWindow.cpp
+│   ├── MainWindow.h
+│   ├── Repository.cpp
+│   ├── Repository.h
+│   ├── Commit.h
+│   ├── Utils.cpp
+│   └── Utils.h
+├── tests/
+│   └── RepositorySmoke.cpp
+├── assets/
+│   └── .gitkeep
+├── .minigit/
+├── CMakeLists.txt
+├── README.md
+└── .gitignore
 ```
 
 ## Recommended Workflow
@@ -105,6 +129,7 @@ Minigit/
 ## Notes
 
 - `assets/` can be used for screenshots or demo images.
+- Add terminal screenshots here to make the project easier to review on GitHub.
 - `tests/RepositorySmoke.cpp` is the smoke test entry point.
 
 ## Smoke Test
