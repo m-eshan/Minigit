@@ -1,3 +1,0 @@
-Name: Eshan
-Department: CSE
-Year: 2

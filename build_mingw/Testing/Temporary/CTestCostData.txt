@@ -1,2 +1,0 @@
-minigit_smoke_tests 1 0.372041
----

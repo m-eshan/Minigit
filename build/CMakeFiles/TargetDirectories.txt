@@ -1,3 +1,0 @@
-C:/Users/eshan/OneDrive/Documents/Minigit/build/CMakeFiles/minigit_gui.dir
-C:/Users/eshan/OneDrive/Documents/Minigit/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/eshan/OneDrive/Documents/Minigit/build/CMakeFiles/ZERO_CHECK.dir

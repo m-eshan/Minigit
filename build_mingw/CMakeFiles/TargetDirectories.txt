@@ -1,9 +1,0 @@
-C:/Users/eshan/OneDrive/Documents/Minigit/build_mingw/CMakeFiles/minigit_gui.dir
-C:/Users/eshan/OneDrive/Documents/Minigit/build_mingw/CMakeFiles/minigit_smoke_tests.dir
-C:/Users/eshan/OneDrive/Documents/Minigit/build_mingw/CMakeFiles/test.dir
-C:/Users/eshan/OneDrive/Documents/Minigit/build_mingw/CMakeFiles/edit_cache.dir
-C:/Users/eshan/OneDrive/Documents/Minigit/build_mingw/CMakeFiles/rebuild_cache.dir
-C:/Users/eshan/OneDrive/Documents/Minigit/build_mingw/CMakeFiles/minigit_gui_autogen_timestamp_deps.dir
-C:/Users/eshan/OneDrive/Documents/Minigit/build_mingw/CMakeFiles/minigit_gui_autogen.dir
-C:/Users/eshan/OneDrive/Documents/Minigit/build_mingw/CMakeFiles/minigit_smoke_tests_autogen_timestamp_deps.dir
-C:/Users/eshan/OneDrive/Documents/Minigit/build_mingw/CMakeFiles/minigit_smoke_tests_autogen.dir
