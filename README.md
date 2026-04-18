@@ -126,11 +126,6 @@ Minigit/
 4. View history with Log.
 5. Use Checkout, Branch, or Merge when you want to explore versions.
 
-## Notes
-
-- `assets/` can be used for screenshots or demo images.
-- Add terminal screenshots here to make the project easier to review on GitHub.
-- `tests/RepositorySmoke.cpp` is the smoke test entry point.
 
 ## Smoke Test
 
